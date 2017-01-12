@@ -1,14 +1,14 @@
-package com.jackie.jr.utils
+package com.jackie.jr.utils;
 
-import org.junit.Test
+import org.junit.Test;
 
 /**
- * Created by luhaiming on 2017/1/9 0009.
+ * Created by luhaiming on 2017/1/12 0012.
  */
-class HttpUtilsTest {
+public class HttpUtilsTest {
 
     @Test
-    void testGet() {
+    public void testGet() {
 
         String url = "http://table.finance.yahoo.com/table.csv?s=000001.sz";
         String res = HttpUtils.get(url);
@@ -18,7 +18,7 @@ class HttpUtilsTest {
     }
 
     @Test
-    void testPost() {
+    public void testPost() {
 
     }
 }
