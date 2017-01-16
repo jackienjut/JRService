@@ -18,7 +18,7 @@ public class UserTest {
 
     static{
         try{
-            reader    = Resources.getResourceAsReader("mybatis_configuration.xml");
+            reader    = Resources.getResourceAsReader("mybatis-config.xml");
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
         }catch(Exception e){
             e.printStackTrace();
@@ -32,7 +32,7 @@ public class UserTest {
     public static void main(String[] args) {
         SqlSession session = sqlSessionFactory.openSession();
         try {
-            User user = (User) session.selectOne("om.jackie.jr.model.UserMapper.selectUserByID", 1);
+            User user = (User) session.selectOne("selectUserByID", 1);
             System.out.println(user.getUserAddress());
             System.out.println(user.getUserName());
         } finally {
