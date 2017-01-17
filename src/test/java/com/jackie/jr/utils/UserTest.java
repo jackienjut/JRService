@@ -1,5 +1,6 @@
 package com.jackie.jr.utils;
 
+import com.jackie.jr.inter.IUserOperation;
 import com.jackie.jr.model.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -29,10 +30,22 @@ public class UserTest {
         return sqlSessionFactory;
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         SqlSession session = sqlSessionFactory.openSession();
         try {
             User user = (User) session.selectOne("selectUserByID", 1);
+            System.out.println(user.getUserAddress());
+            System.out.println(user.getUserName());
+        } finally {
+            session.close();
+        }
+    }*/
+
+    public static void main(String[] args) {
+        SqlSession session = sqlSessionFactory.openSession();
+        try {
+            IUserOperation userOperation=session.getMapper(IUserOperation.class);
+            User user = userOperation.selectUserByID(1);
             System.out.println(user.getUserAddress());
             System.out.println(user.getUserName());
         } finally {
