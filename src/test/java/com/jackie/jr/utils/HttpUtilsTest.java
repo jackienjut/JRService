@@ -1,6 +1,11 @@
 package com.jackie.jr.utils;
 
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
+
+import java.io.Reader;
 
 /**
  * Created by luhaiming on 2017/1/12 0012.
