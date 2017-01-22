@@ -7,4 +7,4 @@ CREATE TABLE `nous`.`historystockinfo` (
   `close` DOUBLE NULL,
   `volume` INT NULL,
   `adjclose` DOUBLE NULL,
-  PRIMARY KEY (`stockid`));
+  PRIMARY KEY (`stockid`)) ENGINE=MyISAM DEFAULT CHARSET=utf8;

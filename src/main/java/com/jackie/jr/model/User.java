@@ -6,7 +6,7 @@ package com.jackie.jr.model;
 public class User {
     private int id;
     private String userName;
-    private String userAge;
+    private int userAge;
     private String userAddress;
 
 
@@ -18,11 +18,11 @@ public class User {
         this.userAddress = userAddress;
     }
 
-    public String getUserAge() {
+    public int getUserAge() {
         return userAge;
     }
 
-    public void setUserAge(String userAge) {
+    public void setUserAge(int userAge) {
         this.userAge = userAge;
     }
 

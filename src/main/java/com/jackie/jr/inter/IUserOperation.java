@@ -12,4 +12,10 @@ public interface IUserOperation {
     User selectUserByID(int id);
 
     List<User> selectUsers(String userName);
+
+    void addUser(User user);
+
+    void updateUser(User user);
+
+    void deleteUser(int id);
 }
