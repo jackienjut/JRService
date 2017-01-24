@@ -1,5 +1,6 @@
 package com.jackie.jr.inter;
 
+import com.jackie.jr.model.Article;
 import com.jackie.jr.model.User;
 
 import java.util.List;
@@ -18,4 +19,6 @@ public interface IUserOperation {
     void updateUser(User user);
 
     void deleteUser(int id);
+
+    public List<Article> getUserArticles(int id);
 }

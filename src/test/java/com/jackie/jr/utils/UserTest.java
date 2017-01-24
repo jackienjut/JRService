@@ -1,13 +1,13 @@
 package com.jackie.jr.utils;
 
 import com.jackie.jr.inter.IUserOperation;
+import com.jackie.jr.model.Article;
 import com.jackie.jr.model.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
-import org.springframework.test.context.jdbc.Sql;
 
 import java.io.Reader;
 import java.util.List;
@@ -110,8 +110,6 @@ public class UserTest {
 
     @Test
     public void update() {
-
-
         SqlSession session = sqlSessionFactory.openSession();
         try {
             IUserOperation userOperation = session.getMapper(IUserOperation.class);
@@ -135,6 +133,25 @@ public class UserTest {
 
         } finally {
             session.close();
+        }
+    }
+
+    @Test
+    public void getUserAarticleTest() {
+        int userid = 1;
+
+        SqlSession session = sqlSessionFactory.openSession();
+        try {
+            IUserOperation userOperation = session.getMapper(IUserOperation.class);
+            List<Article> articles = userOperation.getUserArticles(userid);
+
+            for (Article article : articles) {
+                System.out.println(article.getTitle() + ":" + article.getContent() +
+                        ":作者是:" + article.getUser().getUserName() + ":地址:" +
+                        article.getUser().getUserAddress());
+            }
+        } finally {
+
         }
     }
 
