@@ -1,8 +1,11 @@
 package com.jackie.jr.controller;
 
-import com.jackie.jr.inter.IUserOperation;
+
+import com.jackie.jr.dao.StockDAO;
 import com.jackie.jr.model.Article;
+import com.jackie.jr.model.Stock;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,14 +22,13 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    IUserOperation userMapper;
+    public StockDAO stockDao;
 
     @RequestMapping("/list")
     public String listall(HttpServletRequest request, HttpServletResponse response) {
-        List<Article> articles = userMapper.getUserArticles(1);
-        ModelAndView mav = new ModelAndView("list");
-        mav.addObject("articles", articles);
-        return mav.toString();
+        Stock stock = stockDao.findByCustomerId(1);
+        System.out.println(stock.getAdjclose());
+        return String.valueOf(stock.getAdjclose());
     }
 
 }
