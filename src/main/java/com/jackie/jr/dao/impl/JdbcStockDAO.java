@@ -12,6 +12,7 @@ import java.util.List;
  * Created by luhaiming on 2017/2/4 0004.
  */
 public class JdbcStockDAO extends JdbcDaoSupport implements StockDAO {
+
     @Override
     public void insert(Stock stock) {
         String sql = "INSERT INTO historystockinfo" +

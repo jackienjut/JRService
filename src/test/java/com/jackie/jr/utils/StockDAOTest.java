@@ -4,10 +4,8 @@ import com.jackie.jr.dao.StockDAO;
 import com.jackie.jr.model.Stock;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
@@ -24,7 +22,7 @@ public class StockDAOTest {
     public StockDAO stockDAO;
 
     static {
-        ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ctx = new ClassPathXmlApplicationContext("WEB-INF/applicationContext.xml");
     }
 
 
