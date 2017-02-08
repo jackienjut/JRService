@@ -22,7 +22,7 @@ public class StockDAOTest {
     public StockDAO stockDAO;
 
     static {
-        ctx = new ClassPathXmlApplicationContext("WEB-INF/applicationContext.xml");
+        ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
     }
 
 
@@ -35,7 +35,7 @@ public class StockDAOTest {
 
     @Test
     public void testFindByCustomerId() {
-        StockDAO stockDAO = (StockDAO) ctx.getBean("stockDao");
+        StockDAO stockDAO = (StockDAO) ctx.getBean("stockDAO");
         Stock stock = stockDAO.findByCustomerId(1);
         System.out.println(stock.getAdjclose());
 
