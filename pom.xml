@@ -68,7 +68,6 @@
             <version>4.11</version>
         </dependency>
 
-
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -88,7 +87,6 @@
             <version>4.5.2</version>
         </dependency>
 
-
         <!-- CGLib for @Configuration -->
         <dependency>
             <groupId>cglib</groupId>
@@ -96,7 +94,6 @@
             <version>${cglib.version}</version>
             <scope>runtime</scope>
         </dependency>
-
 
         <!-- Servlet Spec -->
         <dependency>

@@ -1,5 +1,6 @@
 package com.jackie.jr.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -11,6 +12,7 @@ import java.util.Date;
 /**
  * Created by luhaiming on 2017/1/12 0012.
  */
+@Controller
 public class DataController {
     @ResponseBody
     @RequestMapping(value = "/testi")
