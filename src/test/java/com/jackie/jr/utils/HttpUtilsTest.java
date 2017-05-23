@@ -14,7 +14,6 @@ public class HttpUtilsTest {
 
     @Test
     public void testGet() {
-
         String url = "http://table.finance.yahoo.com/table.csv?s=000001.sz";
         String res = HttpUtils.get(url);
         System.out.println(res);
@@ -22,7 +21,6 @@ public class HttpUtilsTest {
 
     @Test
     public void testGet1() {
-
         String url = "http://table.finance.yahoo.com/table.csv?s=AAPl";
         String res = HttpUtils.get(url);
         System.out.println(res);

@@ -7,6 +7,7 @@ import com.jackie.jr.service.StockDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ import java.util.List;
 @Service("stockDataService")
 public class StockDataServiceImpl implements StockDataService {
 
-    @Autowired
+    @Resource
     private StockDataDAO stockDataDAO;
 
     @Override

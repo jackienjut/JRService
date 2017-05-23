@@ -2,12 +2,10 @@ package com.jackie.jr.controller;
 
 import com.jackie.jr.service.StockDataService;
 import com.jackie.jr.utils.HttpUtils;
-import com.sun.org.glassfish.gmbal.ParameterNames;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -20,7 +18,7 @@ import java.util.Date;
 @RequestMapping(value = "/data")
 public class DataController {
 
-    @Autowired
+    @Resource
     private StockDataService stockDataService;
 
     @ResponseBody
@@ -54,11 +52,15 @@ public class DataController {
     @ResponseBody
     @RequestMapping(value = "/add/{stockid}", method = RequestMethod.GET)
     public String addData(@PathVariable(value = "stockid") String stockid) {
-        return "success";
+        boolean res = stockDataService.addData(stockid);
+        if (res)
+            return "success";
+        else
+            return "failed";
     }
 
     @ResponseBody
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/addbypost", method = RequestMethod.POST)
     public String addData1(@RequestParam(value = "stockid") String stockid) {
         boolean res = stockDataService.addData(stockid);
         if (res)

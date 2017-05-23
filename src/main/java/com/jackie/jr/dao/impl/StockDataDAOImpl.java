@@ -14,7 +14,6 @@ import java.util.List;
 @Repository("stockDataDAO")
 public class StockDataDAOImpl implements StockDataDAO {
 
-
     @Override
     public List<Stock> getData(String stockID) {
         return null;
