@@ -1,6 +1,6 @@
-package com.jackie.jr.inter;
+package com.jackie.jr.dao.inter;
 
-import com.jackie.jr.model.Stock;
+import com.jackie.jr.dao.model.Stock;
 
 import java.util.List;
 
@@ -8,7 +8,6 @@ import java.util.List;
  * Created by luhaiming on 2017/5/22 0022.
  */
 public interface IStockOperation {
-
 
     public Stock selectStockByID(int id);
 

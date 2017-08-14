@@ -60,19 +60,14 @@
         </dependency>
 
         <dependency>
-            <groupId>com.jackie.jr</groupId>
-            <artifactId>jrservice</artifactId>
-            <version>${jrservice.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.jackie.jr</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>jr-service</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.jackie.jr</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>jr-utils</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

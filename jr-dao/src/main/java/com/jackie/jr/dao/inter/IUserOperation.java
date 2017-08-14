@@ -1,6 +1,6 @@
-package com.jackie.jr.inter;
+package com.jackie.jr.dao.inter;
 
-import com.jackie.jr.model.Article;
+import com.jackie.jr.dao.model.Article;
 
 import java.util.List;
 

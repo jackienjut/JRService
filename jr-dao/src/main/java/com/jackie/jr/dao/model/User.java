@@ -1,4 +1,4 @@
-package com.jackie.jr.model;
+package com.jackie.jr.dao.model;
 
 /**
  * Created by luhaiming on 2017/1/12 0012.

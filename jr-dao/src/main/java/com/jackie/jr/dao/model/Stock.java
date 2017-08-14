@@ -1,4 +1,4 @@
-package com.jackie.jr.model;
+package com.jackie.jr.dao.model;
 
 import java.util.Date;
 

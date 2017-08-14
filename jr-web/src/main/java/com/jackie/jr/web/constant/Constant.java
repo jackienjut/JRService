@@ -1,4 +1,4 @@
-package com.jackie.jr.constant;
+package com.jackie.jr.web.constant;
 
 /**
  * Created by luhaiming on 2017/5/19 0019.

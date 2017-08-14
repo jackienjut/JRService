@@ -1,7 +1,7 @@
 package com.jackie.jr.service.impl;
 
-import com.jackie.jr.inter.IStockOperation;
-import com.jackie.jr.model.Stock;
+import com.jackie.jr.dao.inter.IStockOperation;
+import com.jackie.jr.dao.model.Stock;
 import com.jackie.jr.service.StockDataService;
 import org.springframework.stereotype.Service;
 

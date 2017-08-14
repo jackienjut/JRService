@@ -1,6 +1,6 @@
 package com.jackie.jr.service;
 
-import com.jackie.jr.model.Stock;
+import com.jackie.jr.dao.model.Stock;
 
 import java.util.List;
 
