@@ -5,8 +5,14 @@
 
     <groupId>com.jackie.jr</groupId>
     <artifactId>jrservice</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <version>1.0</version>
+    <modules>
+        <module>jr-web</module>
+        <module>jr-dao</module>
+        <module>jr-utils</module>
+        <module>jr-service</module>
+    </modules>
+    <packaging>pom</packaging>
 
     <name>jrservice</name>
     <url>http://maven.apache.org</url>
@@ -15,6 +21,15 @@
         <java.version>1.6</java.version>
         <spring.version>4.3.5.RELEASE</spring.version>
         <cglib.version>2.2.2</cglib.version>
+
+
+        <!--build plugin versions -->
+        <plugin.mybatis.generator>1.3.5</plugin.mybatis.generator>
+        <plugin.maven-compiler>3.1</plugin.maven-compiler>
+        <plugin.maven-surefire>2.18.1</plugin.maven-surefire>
+        <skipTests>true</skipTests>
+        <project.build.jdk>1.7</project.build.jdk>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     </properties>
 
@@ -130,28 +145,66 @@
             <version>1.3.1</version>
         </dependency>
 
-    </dependencies>
 
-    <repositories>
-        <repository>
-            <id>springsource-milestones</id>
-            <name>SpringSource Milestones Proxy</name>
-            <url>https://oss.sonatype.org/content/repositories/springsource-milestones</url>
-        </repository>
-    </repositories>
+        <!--google gdata -->
+        <!-- https://mvnrepository.com/artifact/com.google.gdata/core -->
+        <dependency>
+            <groupId>com.google.gdata</groupId>
+            <artifactId>core</artifactId>
+            <version>1.47.1</version>
+        </dependency>
+
+    </dependencies>
 
     <build>
         <finalName>jrservice</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.0.2</version>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                </configuration>
-            </plugin>
-        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.mortbay.jetty</groupId>
+                    <artifactId>maven-jetty-plugin</artifactId>
+                    <version>6.1.26</version>
+                    <configuration>
+                        <webAppConfig>
+                            <contextPath>/</contextPath>
+                        </webAppConfig>
+                        <!-- 每3秒的间隔扫描一次,实现热部署 -->
+                        <scanIntervalSeconds>3</scanIntervalSeconds>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.6</version>
+                    <configuration>
+                        <skip>true</skip>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                </plugin>
+                <!-- Mybatis generator代码生成插件 配置 -->
+                <plugin>
+                    <groupId>org.mybatis.generator</groupId>
+                    <artifactId>mybatis-generator-maven-plugin</artifactId>
+                    <version>${plugin.mybatis.generator}</version>
+                    <configuration>
+                        <configurationFile>${mybatis.generator.generatorConfig.xml}</configurationFile>
+                        <overwrite>true</overwrite>
+                        <verbose>true</verbose>
+                    </configuration>
+                </plugin>
+                <!-- Maven插件 配置 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${plugin.maven-compiler}</version>
+                    <configuration>
+                        <source>${project.build.jdk}</source>
+                        <target>${project.build.jdk}</target>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
     </build>
 </project>
