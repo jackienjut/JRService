@@ -20,7 +20,7 @@ public class DataController {
 
     @Resource
     private StockDataService stockDataService;
-
+/*
     @ResponseBody
     @RequestMapping(value = "/testi")
     public String test1(HttpServletResponse response) throws IOException {
@@ -67,5 +67,5 @@ public class DataController {
             return "success";
         else
             return "failed";
-    }
+    }*/
 }
