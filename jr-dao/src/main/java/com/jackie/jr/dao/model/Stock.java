@@ -7,6 +7,7 @@ import java.util.Date;
  */
 public class Stock {
 
+    public int id;
     public int stockid;
     public Date date;
     public double open;
@@ -16,18 +17,12 @@ public class Stock {
     public int volume;
     public double adjclose;
 
-    public Stock() {
+    public int getId() {
+        return id;
     }
 
-    public Stock(int stockid, Date date, double open, double high, double low, double close, int volume, double adjclose) {
-        this.stockid = stockid;
-        this.date = date;
-        this.open = open;
-        this.high = high;
-        this.low = low;
-        this.close = close;
-        this.volume = volume;
-        this.adjclose = adjclose;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getStockid() {

@@ -5,45 +5,56 @@
 
 <mapper namespace="com.jackie.jr.dao.inter.IStockOperation">
 
-    <select id="selectStockByID" parameterType="int" resultType="Stock">
+    <resultMap id="resultListStock" type="Stock">
+        <result column="id" property="id" jdbcType="INTEGER"/>
+        <result column="stockid" property="stockid" jdbcType="BIGINT"/>
+        <result column="date" property="date" jdbcType="DATE"/>
+        <result column="open" property="open" jdbcType="DOUBLE"/>
+        <result column="high" property="high" jdbcType="DOUBLE"/>
+        <result column="low" property="low" jdbcType="DOUBLE"/>
+        <result column="close" property="close" jdbcType="DOUBLE"/>
+        <result column="volume" property="volume" jdbcType="BIGINT"/>
+        <result column="adjclose" property="adjclose" jdbcType="DOUBLE"/>
+    </resultMap>
+
+
+    <select id="selectStockByID" parameterType="integer" resultType="Stock">
         select * from `historystockinfo` where stockid = #{id}
     </select>
 
-    <select id="selectStocks" parameterType="int" resultMap="resultListStock">
-        select * from `historystockinfo` where stockid = #{stockid}
+    <select id="selectStocks" parameterType="integer" resultMap="resultListStock">
+        select * from `stock_data` where stockid = #{stockid}456
+
     </select>
 
     <insert id="addStock" parameterType="Stock" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO historystockinfo(stockid,date,open,high,low,close,volume,adjclose)
+        INSERT INTO stock_data(stockid,date,open,high,low,close,volume,adjclose)
         values(#{stockid},#{date},#{open},#{high},#{low},#{close},#{volume},#{adjclose})
     </insert>
 
-    <update id="updateStock" parameterType="Stock">
-        update historystockinfo set  date=#{date},open=#{open},high=#{high},low=#{low},close=#{close},volume=#{volume},
-        adjclose=#{adjclose} where stockid=#{stockid}
+    <insert id="addStocksBatch" useGeneratedKeys="true" parameterType="java.util.List">
+        INSERT INTO stock_data (stockid , date ,open , high , low ,close ,volume ,adjclose)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.stockId} ,#{item.date},#{item.open},#{item.high},#{item.low},#{item.close},#{item.volume},#{item.adjclose})
+        </foreach>
+    </insert>
 
+    <update id="updateStock" parameterType="Stock">
+        update stock_data set  date=#{date},open=#{open},high=#{high},low=#{low},close=#{close},volume=#{volume},
+        adjclose=#{adjclose} where stockid=#{stockid}
     </update>
 
-    <delete id="deleteStock" parameterType="int">
-        delete from historystockinfo where stockid=#{id}
+    <delete id="deleteStockByStockId" parameterType="int">
+        delete from stock_data where stockid=#{id}
     </delete>
 
     <select id="dynamicIfTest" parameterType="Stock" resultType="Stock">
-        select * from historystockinfo where 1 = 1
+        select * from stock_data where 1 = 1
         <if test="title != null">
             and open =#{open}
         </if>
     </select>
 
-    <resultMap id="resultListStock" type="Stock">
-        <result column="stockid" property="stockid"/>
-        <result column="date" property="date"/>
-        <result column="open" property="open"/>
-        <result column="high" property="high"/>
-        <result column="low" property="low"/>
-        <result column="close" property="close"/>
-        <result column="volume" property="volume"/>
-        <result column="adjclose" property="adjclose"/>
-    </resultMap>
 
 </mapper>

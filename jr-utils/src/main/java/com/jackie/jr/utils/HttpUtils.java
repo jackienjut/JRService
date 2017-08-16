@@ -30,14 +30,10 @@ public class HttpUtils {
     private static final String CHARSET = "GB2312";
 
     public static String get(String url) {
-
         BufferedReader in = null;
-
         String content = null;
         try {
-
             HttpClient client = new DefaultHttpClient();
-
             HttpGet request = new HttpGet();
             request.setURI(new URI(url));
             HttpResponse response = client.execute(request);

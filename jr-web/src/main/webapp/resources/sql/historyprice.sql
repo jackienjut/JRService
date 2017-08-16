@@ -1,10 +1,11 @@
-CREATE TABLE `nous`.`historystockinfo` (
-  `stockid` INT NOT NULL,
+CREATE TABLE `nous`.`stock_data` (
+ `id` INT NOT NULL AUTO_INCREMENT,
+  `stockid` BIGINT NOT NULL,
   `date` DATE NULL,
   `open` DOUBLE NULL,
   `high` DOUBLE NULL,
   `low` DOUBLE NULL,
   `close` DOUBLE NULL,
-  `volume` INT NULL,
+  `volume` BIGINT NULL,
   `adjclose` DOUBLE NULL,
-  PRIMARY KEY (`stockid`)) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8;

@@ -12,7 +12,11 @@ import java.util.List;
  */
 public interface StockDataService {
 
-    public List<StockDataVO> listStockData(StockQueryDTO stockQueryDTO);
+    public StockDataVO listStockData(int stockId);
+
+    public boolean deleteStockDataByStockId(int stockId);
 
     public boolean saveStockData(List<StockDataDTO> listDatas);
+
+    public boolean saveStockDataByStockID(int stockId);
 }

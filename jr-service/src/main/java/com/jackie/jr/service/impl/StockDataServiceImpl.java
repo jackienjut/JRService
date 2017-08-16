@@ -2,12 +2,15 @@ package com.jackie.jr.service.impl;
 
 import com.jackie.jr.dao.inter.IStockOperation;
 import com.jackie.jr.dao.model.Stock;
+import com.jackie.jr.dto.stock.StockDataDTO;
 import com.jackie.jr.dto.stock.StockQueryDTO;
 import com.jackie.jr.service.StockDataService;
+import com.jackie.jr.service.StockHttpService;
 import com.jackie.jr.vo.StockDataVO;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,10 +23,41 @@ public class StockDataServiceImpl implements StockDataService {
     @Resource
     private IStockOperation stockOperation;
 
-    @Override
-    public List<StockDataVO> listStockData(StockQueryDTO stockQueryDTO) {
+    @Resource
+    private StockHttpService stockHttpService;
 
-        List<Stock> listStocks = stockOperation.selectStocks(stockQueryDTO.getId());
-        return null;
+    @Override
+    public StockDataVO listStockData(int stockId) {
+
+        StockDataVO stockDataVO = new StockDataVO();
+        List<Stock> listStocks = stockOperation.selectStocks(stockId);
+        stockDataVO.setStockid(stockId);
+        stockDataVO.setStocks(listStocks);
+        return stockDataVO;
+    }
+
+    @Override
+    public boolean deleteStockDataByStockId(int stockId) {
+        stockOperation.deleteStockByStockId(stockId);
+        return false;
+    }
+
+    @Override
+    public boolean saveStockData(List<StockDataDTO> listDatas) {
+        return false;
+    }
+
+    @Override
+    public boolean saveStockDataByStockID(int stockId) {
+        if (!(stockOperation.selectStockByID(stockId) == null) && !(stockOperation.selectStockByID(stockId).size() == 0)){
+            stockOperation.deleteStockByStockId(stockId);
+        }
+
+        List<Stock> stocks = new ArrayList<>();
+
+        stocks = stockHttpService.httpStockDataById(stockId);
+
+        stockOperation.addStocksBatch(stocks);
+        return false;
     }
 }

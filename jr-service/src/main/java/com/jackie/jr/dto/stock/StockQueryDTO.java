@@ -5,13 +5,13 @@ package com.jackie.jr.dto.stock;
  */
 public class StockQueryDTO {
 
-    private int id;
+    private int stockId;
 
-    public int getId() {
-        return id;
+    public int getStockId() {
+        return stockId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setStockId(int stockId) {
+        this.stockId = stockId;
     }
 }
