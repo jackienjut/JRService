@@ -1,8 +1,6 @@
 package com.jackie.jr.service;
 
-import com.jackie.jr.dao.model.Stock;
 import com.jackie.jr.dto.stock.StockDataDTO;
-import com.jackie.jr.dto.stock.StockQueryDTO;
 import com.jackie.jr.vo.StockDataVO;
 
 import java.util.List;
@@ -12,11 +10,11 @@ import java.util.List;
  */
 public interface StockDataService {
 
-    public StockDataVO listStockData(int stockId);
+    public StockDataVO listStockData(String stockId);
 
-    public boolean deleteStockDataByStockId(int stockId);
+    public boolean deleteStockDataByStockId(String stockId);
 
     public boolean saveStockData(List<StockDataDTO> listDatas);
 
-    public boolean saveStockDataByStockID(int stockId);
+    public boolean saveStockDataByStockID(String stockId);
 }

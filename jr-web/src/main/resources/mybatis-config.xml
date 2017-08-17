@@ -3,7 +3,7 @@
 		"http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias alias="Stock" type="com.jackie.jr.dao.model.Stock"></typeAlias>
+		<typeAlias alias="StockData" type="com.jackie.jr.dao.model.StockData"></typeAlias>
 		<typeAlias alias="Article" type="com.jackie.jr.dao.model.Article"></typeAlias>
 		<typeAlias alias="User" type="com.jackie.jr.dao.model.User"></typeAlias>
 	</typeAliases>

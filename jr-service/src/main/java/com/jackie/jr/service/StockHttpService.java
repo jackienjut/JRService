@@ -1,6 +1,6 @@
 package com.jackie.jr.service;
 
-import com.jackie.jr.dao.model.Stock;
+import com.jackie.jr.dao.model.StockData;
 
 import java.util.List;
 
@@ -8,5 +8,5 @@ import java.util.List;
  * Created by luhaiming on 2017/8/15 0015.
  */
 public interface StockHttpService {
-    List<Stock> httpStockDataById(int stockId);
+    List<StockData> httpStockDataById(String stockId);
 }

@@ -30,4 +30,12 @@ public class HttpUtilsTest {
         String res = HttpUtils.get(url);
         System.out.println(res);
     }
+
+    @Test
+    public void testPost2() {
+
+        String url = "http://quotes.money.163.com/service/chddata.html?code=0600671";
+        String res = HttpUtils.get(url);
+        System.out.println(res);
+    }
 }

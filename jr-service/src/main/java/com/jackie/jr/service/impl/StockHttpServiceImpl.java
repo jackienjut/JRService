@@ -1,10 +1,9 @@
 package com.jackie.jr.service.impl;
 
-import com.jackie.jr.dao.model.Stock;
+import com.jackie.jr.dao.model.StockData;
 import com.jackie.jr.service.StockHttpService;
 import com.jackie.jr.utils.HttpUtils;
 import com.jackie.jr.utils.UrlUtils;
-import com.sun.jndi.toolkit.url.UrlUtil;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,12 +19,14 @@ public class StockHttpServiceImpl implements StockHttpService {
 
 
     @Override
-    public List<Stock> httpStockDataById(int stockId) {
-        String url = UrlUtils.getFullUrl();
+    public List<StockData> httpStockDataById(String stockId) {
+        UrlUtils urlUtils = new UrlUtils();
+        String url = urlUtils.getFullUrl(stockId);
+
         String res = HttpUtils.get(url);
 
 
-        List<Stock> stocks = new ArrayList<>();
+        List<StockData> stocks = new ArrayList<>();
         String response = get(url);
 
         return null;

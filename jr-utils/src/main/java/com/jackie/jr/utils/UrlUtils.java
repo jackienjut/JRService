@@ -5,21 +5,27 @@ package com.jackie.jr.utils;
  */
 public class UrlUtils {
     //"http://quotes.money.163.com/service/chddata.html?code=0000001&start=19901219&end=20150911&fields=TCLOSE;HIGH;LOW;TOPEN;LCLOSE;CHG;PCHG;VOTURNOVER;VATURNOVER"
-    private static final String base_url = "http://quotes.money.163.com/service/chddata.html";
-    private static String startDate;
-    private static String endDate;
-    private static String fields;
-    private static String code;
+    private  final String base_url = "http://quotes.money.163.com/service/chddata.html";
+    private  String startDate;
+    private  String endDate;
+    private  String fields;
 
-    public static String getFullUrl() {
-        if (code == null)
-            return null;
+
+    public  String getFullUrl(String code) {
         if (startDate != null)
             startDate = "&startDate=" + startDate;
+        else
+            startDate = "";
+
         if (endDate != null)
             endDate = "&endDate=" + endDate;
+        else
+            endDate = "";
+
         if (fields != null)
             fields = "&fields=" + fields;
+        else
+            fields = "";
 
         return base_url + "?code=" + code + startDate + endDate + fields;
     }
@@ -44,19 +50,11 @@ public class UrlUtils {
         this.endDate = endDate;
     }
 
-    public static String getFields() {
+    public String getFields() {
         return fields;
     }
 
-    public static void setFields(String fields) {
-        UrlUtils.fields = fields;
-    }
-
-    public static String getCode() {
-        return code;
-    }
-
-    public static void setCode(String code) {
-        UrlUtils.code = code;
+    public void setFields(String fields) {
+        this.fields = fields;
     }
 }
