@@ -13,7 +13,6 @@ public interface IStockOperation {
 
     public List<StockData> selectStockByID(String stockId);
 
-    public List<StockData> selectStocks(String stockid);
 
     public void addStock(StockData stock);
 

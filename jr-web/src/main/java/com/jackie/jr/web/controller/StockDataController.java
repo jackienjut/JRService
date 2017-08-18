@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,7 +41,7 @@ public class StockDataController {
 
     @ResponseBody
     @RequestMapping(value = "/query", method = RequestMethod.POST)
-    public Map queryStock(StockQueryDTO stockQueryDTO, HttpServletResponse response) throws IOException {
+    public Map queryStock(StockQueryDTO stockQueryDTO) throws IOException {
         String message = "update stock success";
         Map result = new HashMap();
         StockDataVO stockDataVO = stockDataService.listStockData(stockQueryDTO.getStockId());
@@ -50,10 +51,11 @@ public class StockDataController {
 
     @ResponseBody
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public Map saveStock(StockQueryDTO stockQueryDTO) throws IOException {
+    public Map saveStock(StockQueryDTO stockQueryDTO) throws IOException, ParseException {
         String message = "save stock data success";
         boolean res = stockDataService.saveStockDataByStockID(stockQueryDTO.getStockId());
 
         return putSuccessResult(message, res);
     }
+
 }

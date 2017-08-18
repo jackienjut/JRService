@@ -7,7 +7,7 @@
 
     <resultMap id="resultListStock" type="StockData">
         <result column="id" property="id" jdbcType="INTEGER"/>
-        <result column="stockid" property="stockid" jdbcType="VARCHAR"/>
+        <result column="stockid" property="stockId" jdbcType="VARCHAR"/>
         <result column="date" property="date" jdbcType="DATE"/>
         <result column="open" property="open" jdbcType="VARCHAR"/>
         <result column="high" property="high" jdbcType="VARCHAR"/>
@@ -25,13 +25,8 @@
     </resultMap>
 
 
-    <select id="selectStockByID" parameterType="string" resultType="StockData">
-        select * from `historystockinfo` where stockid = #{id}
-    </select>
-
-    <select id="selectStocks" parameterType="string" resultMap="resultListStock">
-        select * from `stock_data` where stockid = #{stockid}
-
+    <select id="selectStockByID" parameterType="string" resultMap="resultListStock">
+        select * from `stock_data` where stockid = #{stockId}
     </select>
 
     <insert id="addStock" parameterType="StockData" useGeneratedKeys="true" keyProperty="id">
@@ -40,10 +35,13 @@
     </insert>
 
     <insert id="addStocksBatch" useGeneratedKeys="true" parameterType="java.util.List">
-        INSERT INTO stock_data (stockid , date ,open , high , low ,close ,volume ,adjclose)
+        INSERT INTO stock_data ( stockid, date,
+        open, high, low, close, fclose, change_amount, price_change_amount, turnover_rate, volume, volume_amount,
+        total_market_capitalization, circulation_market_value, number_of_transactions)
         VALUES
         <foreach collection="list" item="item" index="index" separator=",">
-            (#{item.stockId} ,#{item.date},#{item.open},#{item.high},#{item.low},#{item.close},#{item.volume},#{item.adjclose})
+            (#{item.stockId} ,#{item.date},#{item.open},#{item.high},#{item.low},#{item.close},#{item.fclose},#{item.changeAmount},#{item.priceChangeAmount},#{item.turnoverRate},
+            #{item.volume},#{item.volumeAmount},#{item.totalMarketCapitalization},#{item.circulationMarketValue},#{item.numberOfTransactions})
         </foreach>
     </insert>
 
@@ -52,8 +50,8 @@
         adjclose=#{adjclose} where stockid=#{stockid}
     </update>
 
-    <delete id="deleteStockByStockId" parameterType="int">
-        delete from stock_data where stockid=#{id}
+    <delete id="deleteStockByStockId" parameterType="string">
+        delete from stock_data where stockid = #{stockid}
     </delete>
 
     <select id="dynamicIfTest" parameterType="StockData" resultType="StockData">
@@ -62,6 +60,5 @@
             and open =#{open}
         </if>
     </select>
-
 
 </mapper>

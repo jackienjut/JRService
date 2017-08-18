@@ -1,8 +1,9 @@
 package com.jackie.jr.service;
 
-import com.jackie.jr.dto.stock.StockDataDTO;
+import com.jackie.jr.dao.model.StockData;
 import com.jackie.jr.vo.StockDataVO;
 
+import java.text.ParseException;
 import java.util.List;
 
 /**
@@ -14,7 +15,7 @@ public interface StockDataService {
 
     public boolean deleteStockDataByStockId(String stockId);
 
-    public boolean saveStockData(List<StockDataDTO> listDatas);
+    public boolean saveStockData(List<StockData> listDatas);
 
-    public boolean saveStockDataByStockID(String stockId);
+    public boolean saveStockDataByStockID(String stockId) throws ParseException;
 }

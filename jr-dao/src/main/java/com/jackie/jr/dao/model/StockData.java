@@ -8,7 +8,7 @@ import java.util.Date;
 public class StockData {
 
     public int id;  //日期
-    public String stockid; //股票代码
+    public String stockId; //股票代码
     public Date date;
     public String open; //开盘价
     public String high; //最高价
@@ -33,12 +33,12 @@ public class StockData {
         this.id = id;
     }
 
-    public String getStockid() {
-        return stockid;
+    public String getStockId() {
+        return stockId;
     }
 
-    public void setStockid(String stockid) {
-        this.stockid = stockid;
+    public void setStockId(String stockId) {
+        this.stockId = stockId;
     }
 
     public Date getDate() {
