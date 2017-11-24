@@ -25,7 +25,7 @@ public class StockDataServiceImpl implements StockDataService {
     private StockHttpService stockHttpService;
 
     @Override
-    public StockDataVO  listStockData(String stockId) {
+    public StockDataVO listStockData(String stockId) {
         StockDataVO stockDataVO = new StockDataVO();
         List<StockData> listStocks = stockOperation.selectStockByID(stockId);
         stockDataVO.setStockid(stockId);
@@ -48,7 +48,7 @@ public class StockDataServiceImpl implements StockDataService {
     public boolean saveStockDataByStockID(String stockId) throws ParseException {
         List<StockData> sds = stockOperation.selectStockByID(stockId);
 
-        if ( !( sds.size()== 0)) {
+        if (!(sds.size() == 0)) {
             stockOperation.deleteStockByStockId(stockId);
         }
 
@@ -58,7 +58,7 @@ public class StockDataServiceImpl implements StockDataService {
         try {
             stockOperation.addStocksBatch(stocks);
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }

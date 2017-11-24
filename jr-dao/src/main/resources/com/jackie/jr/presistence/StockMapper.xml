@@ -40,7 +40,8 @@
         total_market_capitalization, circulation_market_value, number_of_transactions)
         VALUES
         <foreach collection="list" item="item" index="index" separator=",">
-            (#{item.stockId} ,#{item.date},#{item.open},#{item.high},#{item.low},#{item.close},#{item.fclose},#{item.changeAmount},#{item.priceChangeAmount},#{item.turnoverRate},
+            (#{item.stockId}
+            ,#{item.date},#{item.open},#{item.high},#{item.low},#{item.close},#{item.fclose},#{item.changeAmount},#{item.priceChangeAmount},#{item.turnoverRate},
             #{item.volume},#{item.volumeAmount},#{item.totalMarketCapitalization},#{item.circulationMarketValue},#{item.numberOfTransactions})
         </foreach>
     </insert>
@@ -60,5 +61,9 @@
             and open =#{open}
         </if>
     </select>
+
+    <insert id="updateStockList" >
+
+    </insert>
 
 </mapper>

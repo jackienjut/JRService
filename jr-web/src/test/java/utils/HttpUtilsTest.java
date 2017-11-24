@@ -1,6 +1,8 @@
 package utils;
 
 import com.jackie.jr.utils.HttpUtils;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import org.junit.Test;
 
 /**
@@ -23,6 +25,7 @@ public class HttpUtilsTest {
         System.out.println(res);
     }
 
+
     @Test
     public void testPost() {
 
@@ -37,5 +40,34 @@ public class HttpUtilsTest {
         String url = "http://quotes.money.163.com/service/chddata.html?code=0600671";
         String res = HttpUtils.get(url);
         System.out.println(res);
+    }
+
+    @Test
+    public void testPost3() {
+        String url = "http://quotes.money.163.com/hs/service/marketradar_ajax.php?page=0&query=STYPE%3AEQA&types=JHJJFL&count=10000&type=query";
+        String res = HttpUtils.get(url);
+        JSONObject resObject = JSONObject.fromObject(res);
+        JSONArray list =  JSONArray.fromObject(resObject.get("list"));
+        System.out.println(list.size());
+    }
+
+    public static String conver(String str) {
+        String result = "";
+        for (int i = 0; i < str.length(); i++) {
+            String temp = "";
+            int strInt = str.charAt(i);
+            if (strInt > 127) {
+                temp += "\\u" + Integer.toHexString(strInt);
+            } else {
+                temp = String.valueOf(str.charAt(i));
+            }
+            result += temp;
+        }
+        return result;
+    }
+
+    @Test
+    public void testPost4() {
+
     }
 }

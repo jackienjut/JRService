@@ -1,6 +1,7 @@
 package com.jackie.jr.dao.inter;
 
 import com.jackie.jr.dao.model.StockData;
+import com.jackie.jr.dao.model.StockInfo;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,7 +14,6 @@ public interface IStockOperation {
 
     public List<StockData> selectStockByID(String stockId);
 
-
     public void addStock(StockData stock);
 
     public void addStocksBatch(List<StockData> stocks);
@@ -23,4 +23,6 @@ public interface IStockOperation {
     public void deleteStockByStockId(String stockid);
 
     public StockData dynamicIfTest(StockData stock);
+
+    public void updateStockList(List<StockInfo> stockLists);
 }
