@@ -25,4 +25,6 @@ public interface IStockOperation {
     public StockData dynamicIfTest(StockData stock);
 
     public void updateStockList(List<StockInfo> stockLists);
+
+    public void insertStockNameListBatch(List<StockInfo> infoLists  );
 }
