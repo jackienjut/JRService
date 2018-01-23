@@ -3,9 +3,10 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias alias="Stock" type="com.jackie.jr.dao.model.StockData"></typeAlias>
-        <typeAlias alias="Article" type="com.jackie.jr.dao.model.Article"></typeAlias>
-        <typeAlias alias="User" type="com.jackie.jr.dao.model.User"></typeAlias>
+        <typeAlias alias="Stock" type="com.jackie.jr.dao.model.StockData"/>
+        <typeAlias alias="Article" type="com.jackie.jr.dao.model.Article"/>
+        <typeAlias alias="User" type="com.jackie.jr.dao.model.User"/>
+        <typeAlias alias="StockMapping" type="com.jackie.jr.dao.model.StockCodeName"/>
     </typeAliases>
 
 </configuration>

@@ -6,9 +6,9 @@
 <mapper namespace="com.jackie.jr.dao.inter.IUserOperation">
 
     <resultMap id="resultUserArticleList" type="Article">
-        <id property="id" column="aid"></id>
-        <result property="title" column="title"></result>
-        <result property="content" column="content"></result>
+        <id property="id" column="aid"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
 
         <association property="user" javaType="User">
             <id property="id" column="id"/>

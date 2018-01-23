@@ -22,23 +22,23 @@
 
     <!--Spring MVC mybatis config -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"></property>
+        <property name="dataSource" ref="dataSource"/>
     </bean>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <!--dataSource 属性指定的连接处 -->
-        <property name="dataSource" ref="dataSource"></property>
+        <property name="dataSource" ref="dataSource"/>
         <!--configutaionLocation 属性是指定没有把提升 的核心配置文件-->
-        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
-        <property name="mapperLocations" value="classpath:com/jackie/jr/presistence/*Mapper.xml"></property>
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <property name="mapperLocations" value="classpath:com/jackie/jr/presistence/*Mapper.xml"/>
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.jackie.jr.dao.inter"></property>
+        <property name="basePackage" value="com.jackie.jr.dao.inter"/>
     </bean>
 
 
     <bean class="com.jackie.jr.web.constant.Constant">
-        <property name="BASE_URL" value="${base_url}"></property>
+        <property name="BASE_URL" value="${base_url}"/>
     </bean>
 </beans>

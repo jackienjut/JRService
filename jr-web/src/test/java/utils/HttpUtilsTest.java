@@ -68,6 +68,8 @@ public class HttpUtilsTest {
 
     @Test
     public void testPost4() {
-
+        String url = "http://localhost:8088/stock163/test";
+        String res = HttpUtils.get(url);
+        System.out.println(res);
     }
 }

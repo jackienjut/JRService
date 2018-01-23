@@ -10,7 +10,7 @@ import javax.annotation.Resource;
  * Created by luhaiming on 2017/11/10 0010.
  */
 
-public class MySqlTest extends BaseTest {
+public class MySqlTest  {
 
     @Resource
     private StockService stockService;

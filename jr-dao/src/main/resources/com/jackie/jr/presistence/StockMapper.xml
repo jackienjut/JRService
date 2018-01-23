@@ -66,16 +66,7 @@
 
     </insert>
 
-    <insert id="insertStockNameListBatch" parameterType="List">
-        INSERT INTO stocks(code,symbol,name,price,percent,number,title
-        ,time,type,type_color)
-
-        <foreach collection="list"
-                 item="item"
-                 index="index"
-                 open="("close=")"separator="union all">
-
-        >
+    <insert id="insertStockNameListBatch" >
 
     </insert>
 
