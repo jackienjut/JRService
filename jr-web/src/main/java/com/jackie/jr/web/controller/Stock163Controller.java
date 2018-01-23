@@ -43,6 +43,14 @@ public class Stock163Controller extends BaseController {
         return  JSONArray.fromObject(stockCodeNames).toString();
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/refresh/{stockid}" ,produces = {"application/json;charset=UTF-8"})
+    @ResponseBody
+    public String refreshData(@RequestParam(value="stockid", required=true) String stockid) {
+        stock163NameMappingService.refreshMapping();
+        return "refresh success";
+    }
+
+
     @RequestMapping(method = RequestMethod.GET, value = "/test")
     public @ResponseBody String test() {
 

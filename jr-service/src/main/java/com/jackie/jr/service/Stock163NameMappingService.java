@@ -14,5 +14,6 @@ public interface Stock163NameMappingService {
 
     public boolean refreshMapping();
 
+    public void refreshData(String stockid);
     public List<StockCodeName> getAllStocks();
 }

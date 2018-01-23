@@ -68,8 +68,9 @@ public class HttpUtilsTest {
 
     @Test
     public void testPost4() {
-        String url = "http://localhost:8088/stock163/test";
+        String url = "http://quotes.money.163.com/service/chddata.html?code=0000001";
         String res = HttpUtils.get(url);
         System.out.println(res);
     }
+    //&fields=TCLOSE;HIGH;LOW;TOPEN;LCLOSE;CHG;PCHG;VOTURNOVER;VATURNOVER
 }

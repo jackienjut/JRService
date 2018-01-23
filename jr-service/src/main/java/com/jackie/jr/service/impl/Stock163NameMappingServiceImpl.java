@@ -59,4 +59,9 @@ public class Stock163NameMappingServiceImpl implements Stock163NameMappingServic
         List<StockCodeName> stockCodeNames = stockIdMappingOperation.selectAll();
         return stockCodeNames;
     }
+
+    @Override
+    public void refreshData(String stockid) {
+
+    }
 }
