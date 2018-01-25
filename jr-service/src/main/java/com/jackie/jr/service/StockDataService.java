@@ -17,5 +17,5 @@ public interface StockDataService {
 
     public boolean saveStockData(List<StockData> listDatas);
 
-    public boolean saveStockDataByStockID(String stockId) throws ParseException;
+    public boolean saveStockDataByStockID(String stockId) ;
 }

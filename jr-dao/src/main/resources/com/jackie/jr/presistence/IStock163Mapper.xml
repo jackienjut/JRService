@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jackie.jr.dao.inter.IStock163Operation">
+    <insert id="addStocks" useGeneratedKeys="true" parameterType="java.util.List">
+        INSERT INTO stock_data_163 (date ,code,
+        name,tclose,high,low,topen,lclose,chg,pchg,turnoverrate,voturnover,vaturnover,totalmarketvalue,marketvalueofcirculation,numberoftransactionpens)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.date},#{item.code},#{item.name},#{item.tclose},#{item.high},#{item.low},#{item.topen},#{item.lclose},#{item.chg},#{item.pchg},#{item.turnoverrate},#{item.voturnover},
+            #{item.vaturnover},#{item.totalmarketvalue},#{item.marketvalueofcirculation},#{item.numberoftransactionpens})
+        </foreach>
+    </insert>
+
+    <delete id="deleteStockByCode">
+
+
+    </delete>
+
+
+    <select id="getStockByCode" parameterType="string">
+       SELECT * FROM  stock_data_163 WHERE code =#{item}
+    </select>
+</mapper>

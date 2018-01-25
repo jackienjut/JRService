@@ -7,6 +7,7 @@
         <typeAlias alias="Article" type="com.jackie.jr.dao.model.Article"/>
         <typeAlias alias="User" type="com.jackie.jr.dao.model.User"/>
         <typeAlias alias="StockMapping" type="com.jackie.jr.dao.model.StockCodeName"/>
+        <typeAlias alias="Stock163" type="com.jackie.jr.dao.model.Stock163"/>
     </typeAliases>
 
 </configuration>

@@ -58,4 +58,5 @@ public class StockDataController {
         return putSuccessResult(message, res);
     }
 
+
 }

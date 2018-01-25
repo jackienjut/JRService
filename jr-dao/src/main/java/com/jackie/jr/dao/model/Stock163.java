@@ -5,7 +5,7 @@ import java.sql.Date;
 /**
  * Created by luhaiming on 2018/1/23 0023.
  */
-public class Stock163Data {
+public class Stock163 {
 
     private Date date;
     private String code;

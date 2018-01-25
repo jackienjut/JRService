@@ -45,7 +45,7 @@ public class StockDataServiceImpl implements StockDataService {
     }
 
     @Override
-    public boolean saveStockDataByStockID(String stockId) throws ParseException {
+    public boolean saveStockDataByStockID(String stockId)  {
         List<StockData> sds = stockOperation.selectStockByID(stockId);
 
         if (!(sds.size() == 0)) {
@@ -53,7 +53,11 @@ public class StockDataServiceImpl implements StockDataService {
         }
 
         List<StockData> stocks = new ArrayList<>();
-        stocks = stockHttpService.httpStockDataById(stockId);
+        try {
+            stocks = stockHttpService.httpStockDataById(stockId);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         try {
             stockOperation.addStocksBatch(stocks);

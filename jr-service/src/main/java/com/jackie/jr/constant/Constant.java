@@ -5,5 +5,5 @@ package com.jackie.jr.constant;
  */
 public class Constant {
     public static final String url_all_stock_name_163 = "http://quotes.money.163.com/hs/service/marketradar_ajax.php?page=0&query=STYPE%3AEQA&types=JHJJFL&count=10000&type=query";
-
+    public static final String URL_GET_STOCK_CODE_163 = "http://quotes.money.163.com/service/chddata.html?code=";
 }
