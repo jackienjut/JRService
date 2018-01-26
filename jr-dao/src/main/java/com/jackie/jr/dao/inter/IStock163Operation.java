@@ -10,7 +10,8 @@ import java.util.List;
  */
 @Repository("stock163Operation")
 public interface IStock163Operation {
-    public void getStockByCode(String code);
+    public List<Stock163> getStockByCode(String code);
     public void deleteStockByCode(String code);
+    public Stock163 getLastDayData(String code);
     public void addStocks(List<Stock163> stocks);
 }

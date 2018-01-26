@@ -68,7 +68,7 @@ public class HttpUtilsTest {
 
     @Test
     public void testPost4() {
-        String url = "http://quotes.money.163.com/service/chddata.html?code=0000001";
+        String url = "http://quotes.money.163.com/service/chddata.html?code=0600710&start=20180125&end=20180127";
         String res = HttpUtils.get(url);
         System.out.println(res);
     }

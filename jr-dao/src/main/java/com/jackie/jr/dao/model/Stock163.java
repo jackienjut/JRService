@@ -1,6 +1,7 @@
 package com.jackie.jr.dao.model;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 /**
  * Created by luhaiming on 2018/1/23 0023.

@@ -1,5 +1,6 @@
 package com.jackie.jr.web.controller;
 
+import com.jackie.jr.dao.model.Stock163;
 import com.jackie.jr.dao.model.StockCodeName;
 import com.jackie.jr.service.Stock163NameMappingService;
 import com.jackie.jr.service.Stock163Service;
@@ -43,8 +44,15 @@ public class Stock163Controller extends BaseController {
     @RequestMapping(method = RequestMethod.GET, value = "/refresh/{stockid}", produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     public String refreshData(@PathVariable(value = "stockid", required = true) String stockid) {
-        stock163Service.refreshStockByCode(stockid);
-        return "refresh data success";
+        String res = stock163Service.refreshStockByCode(stockid);
+        return res;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/getdata/{stockid}", produces = {"application/json;charset=UTF-8"})
+    @ResponseBody
+    public String getData(@PathVariable(value = "stockid", required = true) String stockid) {
+        List<Stock163> stock163s = stock163Service.getStockByCode(stockid);
+        return JSONArray.fromObject(stock163s).toString();
     }
 
 
