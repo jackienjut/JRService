@@ -128,6 +128,11 @@ public class Stock163ServiceImpl implements Stock163Service {
         return stock163Operation.getStockByCode(code);
     }
 
+    @Override
+    public List<String> getAllSavedCodeName() {
+      return   stock163Operation.getAllSavedCodeName();
+    }
+
     private String getStockUrl(String code) {
         return Constant.URL_GET_STOCK_CODE_163 + code;
     }
@@ -135,5 +140,6 @@ public class Stock163ServiceImpl implements Stock163Service {
     private String getStockDateUrlByCode(String code, String startDate, String endDate) {
         return Constant.URL_GET_STOCK_CODE_163 + code + "&start=" + startDate + "&end=" + endDate;
     }
+
 
 }

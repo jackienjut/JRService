@@ -19,4 +19,6 @@ public interface Stock163Service {
     public void deleteStockByCode(String code);
 
     public List<Stock163> getStockByCode(String code);
+
+    public List<String> getAllSavedCodeName();
 }

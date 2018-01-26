@@ -14,4 +14,6 @@ public interface IStock163Operation {
     public void deleteStockByCode(String code);
     public Stock163 getLastDayData(String code);
     public void addStocks(List<Stock163> stocks);
+
+    public List<String> getAllSavedCodeName();
 }

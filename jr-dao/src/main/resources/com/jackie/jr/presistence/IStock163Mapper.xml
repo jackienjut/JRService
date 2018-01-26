@@ -44,4 +44,8 @@
     <select id="getLastDayData" resultType="com.jackie.jr.dao.model.Stock163">
          SELECT * FROM  stock_data_163 WHERE code =#{code} order by date desc limit 1
     </select>
+
+    <select id="getAllSavedCodeName" resultType="java.lang.String">
+        SELECT code FROM nous.stock_data_163 group by code;
+    </select>
 </mapper>
