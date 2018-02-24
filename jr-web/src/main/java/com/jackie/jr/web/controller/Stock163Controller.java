@@ -27,13 +27,6 @@ public class Stock163Controller extends BaseController {
     @Resource
     private Stock163Service stock163Service;
 
-  /*  @RequestMapping(method = RequestMethod.GET, value = "/refresh")
-    @ResponseBody
-    public String updateAllStockNameMapping() {
-        stock163NameMappingService.refreshMapping();
-        return "refresh success";
-    }*/
-
     @RequestMapping(method = RequestMethod.GET, value = "/getallcodename", produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     public String updateAllStockNameMapping() {
@@ -60,12 +53,5 @@ public class Stock163Controller extends BaseController {
     public String getStockCodeStored() {
         List<String> stock163s = stock163Service.getAllSavedCodeName();
         return JSONArray.fromObject(stock163s).toString();
-    }
-
-    @RequestMapping(method = RequestMethod.GET, value = "/test/{test}")
-    public
-    @ResponseBody
-    String test(@PathVariable String test) {
-        return "hao好的" + test;
     }
 }
